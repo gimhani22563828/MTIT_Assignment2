@@ -1,0 +1,17 @@
+{
+  "name": "food-ordering-system",
+  "version": "1.0.0",
+  "description": "Root package to run all microservices concurrently",
+  "scripts": {
+    "start": "concurrently \"npm run start-gateway\" \"npm run start-user\" \"npm run start-restaurant\" \"npm run start-order\" \"npm run start-payment\"",
+    "start-gateway": "cd api-gateway && npm start",
+    "start-user": "cd user-service && npm start",
+    "start-restaurant": "cd restaurant-service && npm start",
+    "start-order": "cd order-service && npm start",
+    "start-payment": "cd payment-service && npm start",
+    "install-all": "npm install && concurrently \"cd api-gateway && npm install\" \"cd user-service && npm install\" \"cd restaurant-service && npm install\" \"cd order-service && npm install\" \"cd payment-service && npm install\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
